@@ -6,11 +6,6 @@ const bodyParser = require('body-parser');
 const User = require('./api/routes/user')
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("logged to database"))
-    .catch(err => console.error('could not connect to mongo db....', err))
-
-
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers',

@@ -29,10 +29,10 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-
-app.get('/',(req,res,next)=>{
+app.get('/',(req, res, next)=>{
     res.status(200).json({server:'server is life'});
 });
+
 app.use('/user', User)
 
 
@@ -51,6 +51,9 @@ app.use((error, req, res, next) => {
 
 });
 
+
+const port = process.env.PORT|| 3000;
+app.listen(port);
 
 module.exports = app;
 
